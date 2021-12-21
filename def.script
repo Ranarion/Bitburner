@@ -1,0 +1,25 @@
+// Defines how much money a server should have before we hack it
+// In this case, it is set to 75% of the server's max money
+var moneyThresh = getServerMaxMoney(args[0]) * 0.5;
+
+// Defines the maximum security level the target server can
+// have. If the target's security level is higher than this,
+// we'll weaken it before doing anything else
+var securityThresh = getServerMinSecurityLevel(args[0]) + 10;
+
+
+
+
+// Infinite loop that continously hacks/grows/weakens the target server
+while(true) {
+    if (getServerSecurityLevel(args[0]) > securityThresh) {
+        // If the server's security level is above our threshold, weaken it
+        weaken(args[0]);
+    } else if (getServerMoneyAvailable(args[0]) < moneyThresh) {
+        // If the server's money is less than our threshold, grow it
+        grow(args[0]);
+    } else {
+        // Otherwise, hack it
+        hack(args[0]);
+    }
+}
