@@ -11,6 +11,14 @@ var ports = 0
     relaysmtp(args[0]);
     ++ports
     }
+    if (fileExists("SQLInject.exe ", "home")) {
+    sqlinject(args[0]);
+    ++ports
+    }
+    if (fileExists(" HTTPWorm.exe", "home")) {
+    httpworm(args[0]);
+    ++ports
+    }
     scp("def.script", args[0]);
     if (getServerNumPortsRequired(args[0]) <= ports) {
         nuke(args[0]);
