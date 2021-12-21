@@ -11,11 +11,11 @@ var ports = 0
     relaysmtp(args[0]);
     ++ports
     }
-    if (fileExists("SQLInject.exe ", "home")) {
+    if (fileExists("SQLInject.exe", "home")) {
     sqlinject(args[0]);
     ++ports
     }
-    if (fileExists(" HTTPWorm.exe", "home")) {
+    if (fileExists("HTTPWorm.exe", "home")) {
     httpworm(args[0]);
     ++ports
     }
