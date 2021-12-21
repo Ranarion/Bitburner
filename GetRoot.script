@@ -1,0 +1,17 @@
+var ports = 0
+    if (fileExists("BruteSSH.exe", "home")) {
+    brutessh(args[0]);
+    ++ports
+    }
+    if (fileExists("FTPCrack.exe", "home")) {
+    ftpcrack(args[0]);
+    ++ports
+    }
+    if (fileExists("relaySMTP.exe", "home")) {
+    relaysmtp(args[0]);
+    ++ports
+    }
+    scp("def.script", args[0]);
+    if (getServerNumPortsRequired(args[0]) <= ports) {
+        nuke(args[0]);
+	}
