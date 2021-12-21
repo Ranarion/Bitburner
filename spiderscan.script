@@ -1,0 +1,10 @@
+import * as array from "unique-array.script"; //Import all functions from script
+var servers = scan("home")
+
+for (var i = 0; i < servers.length; ++i) {
+    var serv = servers[i];
+    servers = servers.concat(scan(serv));
+    servers = array.uArray(servers);
+}
+servers = array.uArray(servers);
+print(servers)
