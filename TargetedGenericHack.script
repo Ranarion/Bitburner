@@ -1,0 +1,21 @@
+var servers = ["n00dles","foodnstuff","sigma-cosmetics","joesguns","hong-fang-tea","harakiri-sushi","iron-gym","zer0","CSEC","nectar-net","max-hardware","neo-net","silver-helix","omega-net","phantasy","the-hub","comptek","johnson-ortho","crush-fitness","avmnite-02h","netlink","syscore","zb-institute","I.I.I.I","catalyst","rothman-uni","summit-uni","rho-construction","alpha-ent","aevum-police","lexo-corp","millenium-fitness","galactic-cyber","global-pharm","aerocorp","snap-fitness","unitalife","deltaone","omnia","univ-energy","solaris","icarus","defcomm","zeus-med","taiyang-digital","infocomm","zb-def","nova-med","applied-energetics","run4theh111z","titan-labs","microdyne","fulcrumtech","vitalife","stormtech","helios","omnitek",".","kuai-gong","4sigma","nwo","clarkinc","powerhouse-fitness","blade","b-and-a","The-Cave","megacorp","fulcrumassets","ecorp"];
+servers = servers.concat(getPurchasedServers())
+    print(servers);
+if (!hasRootAccess(args[0])) {
+    exec("GetRoot.script","home",1,args[0]);
+}
+   
+for (var i = 0; i < servers.length; ++i) {
+    var serv = servers[i];
+   if (!hasRootAccess(serv)) {
+       exec("GetRoot.script","home",1,serv);
+       }
+    // define if server can be hacked
+    var hlevel = getHackingLevel();
+    if (hlevel >= getServerRequiredHackingLevel(serv) && serv.indexOf("pserv") != 0 ){
+        exec("startscript.script", "home", 1, serv, serv);
+        }else {
+            exec("startscript.script", "home", 1, args[0], serv);
+            
+        }
+}
