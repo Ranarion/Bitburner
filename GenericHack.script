@@ -10,7 +10,9 @@ for (var i = 0; i < servers.length; ++i) {
     sleep(10);//wait for root access to be archived
     // define if server can be hacked
     if (hlevel >= getServerRequiredHackingLevel(serv) && serv.indexOf("pserv") != 0 ){
-        hServers = hServers.concat(serv);        
+        if (!hasRootAccess(serv)) {
+            hServers = hServers.concat(serv);
+        }  
         exec("startscript.script", "home", 1, serv, serv);
         }else {
             var target = hServers[Math.floor(Math.random() * hServers.length)];
